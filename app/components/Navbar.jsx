@@ -115,7 +115,7 @@ const Navbar = () => {
                   </li>
                   <li className="w-full">
                     <Link
-                      href="/"
+                      href="/about"
                       className="block border-b border-[#ececec] py-2"
                     >
                       About
@@ -218,7 +218,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link href="/" className="hover:text-brand transition">
+              <Link href="/about" className="hover:text-brand transition">
                 About
               </Link>
             </li>

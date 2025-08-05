@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @utility container {
   margin: auto;
-  padding-inline: 2rem;
+  /* padding-inline: 2rem; */
 }
 @theme {
   --color-brand: #3bb77e;
