@@ -6,7 +6,7 @@ import { FaStar } from "react-icons/fa";
 import productImg from "../../../public/product.png"
 const ProductItems = ({ data }) => {
   return (
-    <div className="block p-2 md:p-6 border border-[#F2F3F4] rounded-2xl w-fit group relative overflow-hidden">
+    <div className="block p-2 md:p-6 border border-[#F2F3F4] rounded-2xl w-full group relative overflow-hidden">
       <div className="absolute top-0 left-0 bg-brand text-white text-xs px-2 py-1 rounded-br-xl">
         <p>Hot</p>
       </div>

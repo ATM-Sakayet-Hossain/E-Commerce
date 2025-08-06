@@ -5,7 +5,7 @@ const Subscribe = () => {
   return (
     <section className="pb-10 ">
       <div className="container bg-[url(/subscribe-bg.png)] bg-no-repeat bg-cover bg-center p-20 rounded-3xl">
-        <h2 className="font-bold text-primary text-[40px] max-w-xl">
+        <h2 className="font-bold :text-primary text-[40px] max-w-xl">
           Stay home & get your daily needs from our shop
         </h2>
         <p className="font-normal text-secondary pt-5 pb-11">

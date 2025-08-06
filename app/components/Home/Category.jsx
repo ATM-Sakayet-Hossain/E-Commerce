@@ -9,7 +9,7 @@ const Category = () => {
     dots: false,
     infinite: true,
     speed: 500,
-    slidesToShow: 11,
+    slidesToShow: 10,
     slidesToScroll: 1,
     nextArrow: <NextArrow customStyle="absolute -top-10 md:-top-16 right-0" />,
     prevArrow: <PrevArrow customStyle="absolute -top-10 md:-top-16 right-16" />,
@@ -17,7 +17,7 @@ const Category = () => {
       {
         breakpoint: 1025,
         settings: {
-          slidesToShow: 7,
+          slidesToShow: 6,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -41,7 +41,7 @@ const Category = () => {
       {
         breakpoint: 512,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: 4,
           slidesToScroll: 1,
         },
       },
@@ -78,6 +78,13 @@ const Category = () => {
         </div>
         <div className="pt-11">
           <Slider {...settings}>
+                <CategoryItems/>
+                <CategoryItems/>
+                <CategoryItems/>
+                <CategoryItems/>
+                <CategoryItems/>
+                <CategoryItems/>
+                <CategoryItems/>
                 <CategoryItems/>
                 <CategoryItems/>
                 <CategoryItems/>
