@@ -15,7 +15,7 @@ const Navbar = () => {
 
   return (
     <header className="relative shadow-sm m-auto">
-      {/* Header Top Part */}
+      {/* Header Part */}
       <div className="container">
         <div className="flex justify-between items-center py-8 gap-8">
           <button
@@ -77,7 +77,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          {/* Main menu mobile view */}
+          {/* mobile menu */}
           <nav
             className={`w-full h-screen bg-[rgba(0,0,0,0.6)] absolute top-0 left-0 transition-all z-50 ${
               sidebar ? "translate-x-0" : "-translate-x-full"
@@ -159,7 +159,7 @@ const Navbar = () => {
           </nav>
         </div>
       </div>
-      {/* Main Menu desktop view*/}
+      {/* desktop menu*/}
       <nav className="hidden md:block py-6 border-t border-[#ececec]">
         <div className="container flex items-center gap-4 xl:gap-9">
           <div className="relative">
