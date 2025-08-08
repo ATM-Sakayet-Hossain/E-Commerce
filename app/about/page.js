@@ -4,6 +4,7 @@ import FeaturesGrid from '../components/utils/FeaturesGrid'
 import MapBreadcramp from '../components/utils/MapBreadcramp'
 import AboutUs from '../components/About/AboutUs'
 import Provide from '../components/About/Provide'
+import Partner from '../components/About/Partner'
 
 const page = () => {
   return (
@@ -11,6 +12,7 @@ const page = () => {
     <MapBreadcramp />
     <AboutUs />
     <Provide />
+    <Partner />
     <Subscribe />
     <FeaturesGrid />
     </>

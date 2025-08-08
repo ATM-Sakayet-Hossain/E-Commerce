@@ -6,9 +6,9 @@ import { TbPhoneCall } from "react-icons/tb";
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className='px-4'>
       <div className="container">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-20">
           <div>
             <img src="/logo.png" alt="logo" />
             <p className="font-normal text-lg text-primary pt-4 pb-8">
