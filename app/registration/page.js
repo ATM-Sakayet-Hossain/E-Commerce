@@ -3,64 +3,74 @@ import Link from "next/link";
 
 const page = () => {
   return (
-    <section className="h-screen flex items-center justify-center">
-      <form className="w-xl">
-        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto lg:py-0">
-          <div className="w-full bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-0">
-            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
-              <p className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
-                Create an account
-              </p>
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Username
-                </label>
-                <input
-                  placeholder="JohnDoe"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                  id="username"
-                  type="text"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Email
-                </label>
-                <input
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                  placeholder="user@gmail.com"
-                  id="email"
-                  type="email"
-                  required
-                />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm font-medium text-gray-900">
-                  Password
-                </label>
-                <input
-                  className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg block w-full p-2.5"
-                  placeholder="••••••••"
-                  id="password"
-                  type="password"
-                  required
-                />
-              </div>
-              <button
-                className="w-full bg-blue-500 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center  focus:ring-blue-800 text-white"
-                type="submit"
-              >
-                Create an account
-              </button>
-              <p>
-                Already have an account ? <Link href="/login">Login</Link>
-              </p>
-            </div>
-          </div>
+    <div className="flex items-center justify-center min-h-screen from-[#e0f7ff] to-[#ffffff]">
+      {/* <ToastContainer position="top-right" theme="light" /> */}
+      <div className="w-full max-w-lg bg-white shadow-xl rounded-2xl px-8 py-10">
+        <div className=" text-center mb-8">
+          <h2 className="text-2xl font-semibold text-[#1a1a68]">
+            Create an account
+          </h2>
         </div>
-      </form>
-    </section>
+
+        <form className="space-y-4">
+          <div className="input flex flex-col static">
+            <label
+              htmlFor="input"
+              className="text-blue-500 text-xs font-semibold relative top-2 ml-[7px] px-[3px] bg-white w-fit"
+            >
+              Email Address:
+            </label>
+            <input
+              type="email"
+              placeholder="you@SSJH Hospital.com"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+
+          <div className="input flex flex-col static">
+            <label
+              htmlFor="input"
+              className="text-blue-500 text-xs font-semibold relative top-2 ml-[7px] px-[3px] bg-white w-fit"
+            >
+              Full Name:
+            </label>
+            <input
+              type="text"
+              placeholder="Your Full Name"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+
+          <div className="input flex flex-col static">
+            <label
+              htmlFor="input"
+              className="text-blue-500 text-xs font-semibold relative top-2 ml-[7px] px-[3px] bg-white w-fit"
+            >
+              Password:
+            </label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-gradient-to-r from-[#0275a6] to-[#025e87] text-white py-2 rounded-full font-semibold hover:opacity-90 transition duration-300"
+          >
+            Sign up
+          </button>
+        </form>
+
+        <p className="text-sm text-center text-gray-500 mt-6">
+          Already have an account?
+          <Link href="/login" className="text-[#0275a6] hover:underline">
+            Log in
+          </Link>
+        </p>
+      </div>
+    </div>
   );
 };
 
