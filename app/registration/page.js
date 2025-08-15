@@ -1,10 +1,41 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 const page = () => {
+  const [userData, SetUserData] = useState({
+    fullName: "",
+    phone: "",
+    email: "",
+    password: "",
+  });
+
+  const handelSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "https://eb-commerce-server.vercel.app/api/v1/auth/registration",
+        {
+          method: "POST",
+          headers: {
+            accept: "application/json",
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        },
+      );
+      const data = await response.json();
+      toast.error(data.error);
+      toast.success(data.success);      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
   return (
     <div className="flex items-center justify-center min-h-screen from-[#e0f7ff] to-[#ffffff]">
-      {/* <ToastContainer position="top-right" theme="light" /> */}
+      <ToastContainer position="top-right" theme="light" />
       <div className="w-full max-w-lg bg-white shadow-xl rounded-2xl px-8 py-10">
         <div className=" text-center mb-8">
           <h2 className="text-2xl font-semibold text-[#1a1a68]">
@@ -12,7 +43,7 @@ const page = () => {
           </h2>
         </div>
 
-        <form className="space-y-4">
+        <form onSubmit={handelSubmit} className="space-y-4">
           <div className="input flex flex-col static">
             <label
               htmlFor="input"
@@ -22,7 +53,10 @@ const page = () => {
             </label>
             <input
               type="email"
-              placeholder="you@SSJH Hospital.com"
+              onChange={(e) =>
+                SetUserData((prev) => ({ ...prev, email: e.target.value }))
+              }
+              placeholder="you@gmail.com"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
@@ -32,11 +66,30 @@ const page = () => {
               htmlFor="input"
               className="text-blue-500 text-xs font-semibold relative top-2 ml-[7px] px-[3px] bg-white w-fit"
             >
-              Full Name:
+              Name:
             </label>
             <input
               type="text"
+              onChange={(e) =>
+                SetUserData((prev) => ({ ...prev, fullName: e.target.value }))
+              }
               placeholder="Your Full Name"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+            />
+          </div>
+          <div className="input flex flex-col static">
+            <label
+              htmlFor="input"
+              className="text-blue-500 text-xs font-semibold relative top-2 ml-[7px] px-[3px] bg-white w-fit"
+            >
+              Phone:
+            </label>
+            <input
+              type="text"
+              onChange={(e) =>
+                SetUserData((prev) => ({ ...prev, phone: e.target.value }))
+              }
+              placeholder="Your Phone Number"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
           </div>
@@ -50,6 +103,9 @@ const page = () => {
             </label>
             <input
               type="password"
+              onChange={(e) =>
+                SetUserData((prev) => ({ ...prev, password: e.target.value }))
+              }
               placeholder="••••••••"
               className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
