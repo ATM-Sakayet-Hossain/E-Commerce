@@ -7,11 +7,11 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 
-const Navbar = () => {
+const Navbar = ({userData}) => {
   const [show, setShow] = useState(false);
   const [sidebar, setSidebar] = useState(false);
-  const userData = false
   const cartData = false
+  
 
   return (
     <header className="relative shadow-sm m-auto">
@@ -62,13 +62,13 @@ const Navbar = () => {
                 {
                   userData
                   ?
-                  <>
+                  <div className="flex items-center gap-2">
                    <div className="userImage overflow-hidden w-[30px] h-[30px]  rounded-full bg-gray-200">
-                     <Image width={24} height={50} src={userData?.avatar?.url} alt="user profile" />
+                     {/* <Image width={24} height={50} src={userData?.avatar?.url} alt="user profile" /> */}
+                     <h2 className="flex items-center justify-center text-xl font-bold text-blue-400">{userData?.name[0]}</h2>
                     </div>
-                    <h2 className="text-[16px] font-medium text-black">{userData?.username}</h2>
-                  </>
-
+                    <h2 className="text-[16px] font-medium text-black">{userData?.name}</h2>
+                  </div>
                   :
                  <Link href="/login">
                    login
