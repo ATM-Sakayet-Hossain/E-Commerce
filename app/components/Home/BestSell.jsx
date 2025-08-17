@@ -2,8 +2,8 @@ import Image from "next/image";
 import ProductItems from "../Product/ProductITems";
 import ProductSlider from "../utils/ProductSlider";
 import { NextArrow, PrevArrow } from "../utils/SliderArrows";
-import bestImg from "../../../public/bestsellBanner.png"
-const BestSell = () => {
+import bestImg from "../../../public/bestsellBanner.png";
+const BestSell = async () => {
   const settings = {
     dots: false,
     infinite: true,
@@ -46,6 +46,10 @@ const BestSell = () => {
       },
     ],
   };
+  const response = await fetch("https://fdr-food-api.onrender.com/api/foods", {
+    method: "GET",
+  });
+  const data = await response.json();
   return (
     <section className="pb-12">
       <div className="container">
@@ -83,21 +87,16 @@ const BestSell = () => {
           </div>
           <div className="w-full sm:w-3/4">
             <ProductSlider slideSetting={settings}>
+              {data.map((item) => (
                 <div className="px-2">
-                  <ProductItems />
-                </div>
+                <ProductItems key={item._id} data={item} />
+              </div>
+              ))}
+              {data.map((item) => (
                 <div className="px-2">
-                  <ProductItems />
-                </div>
-                <div className="px-2">
-                  <ProductItems />
-                </div>
-                <div className="px-2">
-                  <ProductItems />
-                </div>
-                <div className="px-2">
-                  <ProductItems />
-                </div>
+                <ProductItems key={item._id} data={item} />
+              </div>
+              ))}
             </ProductSlider>
           </div>
         </div>

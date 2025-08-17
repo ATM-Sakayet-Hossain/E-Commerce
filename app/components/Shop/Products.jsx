@@ -2,7 +2,14 @@ import React from 'react'
 import { AiTwotoneAppstore } from "react-icons/ai";
 import ProductItems from '../Product/ProductITems';
 
-const Products = () => {
+const Products = async () => {
+  const response = await fetch(
+    "https://fdr-food-api.onrender.com/api/foods",
+    {
+      method: "GET",
+    }
+  );
+  const data = await response.json();
   return (
     <section className="pb-12">
       <div className="container">
@@ -20,16 +27,21 @@ const Products = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 md:pt-5 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
+          {data.map((item) => (
+            console.log(item),
+            
+            <ProductItems key={item._id} data={item} />
+          ))}
+          {data.map((item) => (
+            console.log(item),
+            
+            <ProductItems key={item._id} data={item} />
+          ))}
+          {data.map((item) => (
+            console.log(item),
+            
+            <ProductItems key={item._id} data={item} />
+          ))}
         </div>
       </div>
     </section>

@@ -1,7 +1,14 @@
 import React from 'react'
 import ProductListItem from '../utils/ProductListItem'
 
-const TrendyProducts = () => {
+const TrendyProducts = async () => {
+  const response = await fetch(
+    "https://fdr-food-api.onrender.com/api/foods",
+    {
+      method: "GET",
+    }
+  );
+  const data = await response.json();
   return (
     <section className="pb-14">
       <div className="container">
@@ -11,9 +18,11 @@ const TrendyProducts = () => {
               Top Selling
             </h2>
             <div className="flex flex-col gap-5 mt-8">
-              <ProductListItem />
-              <ProductListItem />
-              <ProductListItem />
+              {
+                data.slice(0, 3).map((item) => (
+                  <ProductListItem key={item._id} data={item} />
+                ))
+              }
             </div>
           </div>
           <div>
@@ -21,9 +30,11 @@ const TrendyProducts = () => {
               Trending Products
             </h2>
             <div className="flex flex-col gap-5 mt-8">
-              <ProductListItem />
-              <ProductListItem />
-              <ProductListItem />
+              {
+                data.slice(0, 3).map((item) => (
+                  <ProductListItem key={item._id} data={item} />
+                ))
+              }
             </div>
           </div>
           <div>
@@ -31,9 +42,11 @@ const TrendyProducts = () => {
               Recently added
             </h2>
             <div className="flex flex-col gap-5 mt-8">
-              <ProductListItem />
-              <ProductListItem />
-              <ProductListItem />
+              {
+                data.slice(0, 3).map((item) => (
+                  <ProductListItem key={item._id} data={item} />
+                ))
+              }
             </div>
           </div>
           <div>
@@ -41,9 +54,11 @@ const TrendyProducts = () => {
               Top Rated
             </h2>
             <div className="flex flex-col gap-5 mt-8">
-              <ProductListItem />
-              <ProductListItem />
-              <ProductListItem />
+              {
+                data.slice(0, 3).map((item) => (
+                  <ProductListItem key={item._id} data={item} />
+                ))
+              }
             </div>
           </div>
         </div>

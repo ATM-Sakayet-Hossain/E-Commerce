@@ -1,6 +1,13 @@
 import ProductItems from "../Product/ProductITems";
 
-const PopularProducts = () => {
+const PopularProducts = async () => {
+  const response = await fetch(
+    "https://fdr-food-api.onrender.com/api/foods",
+    {
+      method: "GET",
+    }
+  );
+  const data = await response.json();
   return (
     <section className="pb-12">
       <div className="container">
@@ -39,16 +46,15 @@ const PopularProducts = () => {
           </ul>
         </div>
         <div className="pt-11 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-8">
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
-            <ProductItems />
+          {data.map((item) => (
+            <ProductItems key={item._id} data={item} />
+          ))}
+          {data.map((item) => (
+            <ProductItems key={item._id} data={item} />
+          ))}
+          {data.map((item) => (
+            <ProductItems key={item._id} data={item} />
+          ))}
         </div>
       </div>
     </section>
