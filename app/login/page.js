@@ -26,8 +26,8 @@ const page = () => {
       const data = await response.json();
       toast.success("Login successful!");
       toast.error(data.message);
-      router.push("/");
       document.cookie=`token=${data.token}`; // Set cookie for 1 hour
+      router.push("/");
     }catch(error){
       console.log("Error during registration:", error);
     }
