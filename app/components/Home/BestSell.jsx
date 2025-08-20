@@ -46,7 +46,7 @@ const BestSell = async () => {
       },
     ],
   };
-  const response = await fetch("https://fdr-food-api.onrender.com/api/foods", {
+  const response = await fetch("https://dummyjson.com/products?skip=30", {
     method: "GET",
   });
   const data = await response.json();
@@ -87,14 +87,9 @@ const BestSell = async () => {
           </div>
           <div className="w-full sm:w-3/4">
             <ProductSlider slideSetting={settings}>
-              {data.map((item) => (
+              {data.products.map((item) => (
                 <div className="px-2">
-                <ProductItems key={item._id} data={item} />
-              </div>
-              ))}
-              {data.map((item) => (
-                <div className="px-2">
-                <ProductItems key={item._id} data={item} />
+                <ProductItems key={item.id} data={item} />
               </div>
               ))}
             </ProductSlider>

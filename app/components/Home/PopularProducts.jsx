@@ -2,7 +2,7 @@ import ProductItems from "../Product/ProductITems";
 
 const PopularProducts = async () => {
   const response = await fetch(
-    "https://fdr-food-api.onrender.com/api/foods",
+    "https://dummyjson.com/products?limit=20&skip=0",
     {
       method: "GET",
     }
@@ -46,14 +46,8 @@ const PopularProducts = async () => {
           </ul>
         </div>
         <div className="pt-11 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-6 gap-y-8">
-          {data.map((item) => (
-            <ProductItems key={item._id} data={item} />
-          ))}
-          {data.map((item) => (
-            <ProductItems key={item._id} data={item} />
-          ))}
-          {data.map((item) => (
-            <ProductItems key={item._id} data={item} />
+          {data.products.map((item) => (
+            <ProductItems key={item.id} data={item} />
           ))}
         </div>
       </div>
