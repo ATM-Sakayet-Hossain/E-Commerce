@@ -7,7 +7,7 @@ const page = async ({params}) => {
   
   return (
     <>
-    <MapBreadcramp id={id[0]} />
+    <MapBreadcramp/>
     <ProductDetails id={id[0]} />
     </>
   )

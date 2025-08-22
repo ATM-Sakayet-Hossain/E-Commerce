@@ -9,23 +9,27 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const data = await cookies()
+  const data = await cookies();
   const cookie = data.get("token")?.value;
   const response = await fetch(
-  "https://fdr-food-api.onrender.com/api/profile",
-  {
-    method: "GET",
-    headers: {
-      "authorization": `Bearer ${cookie}`,
-    },
-  }
-);
+    "https://fdr-food-api.onrender.com/api/profile",
+    {
+      method: "GET",
+      headers: {
+        authorization: `Bearer ${cookie}`,
+      },
+    }
+  );
   const res = await response.json();
   const userData = res.user;
 
   return (
     <html lang="en">
-      <body data-new-gr-c-s-check-loaded="14.1249.0" data-gr-ext-installed={true} data-gr-ext-installed="">
+      <body
+        data-new-gr-c-s-check-loaded="14.1249.0"
+        data-gr-ext-installed={true}
+        data-gr-ext-installed=""
+      >
         <Navbar userData={userData} />
         {children}
         <Footer />
