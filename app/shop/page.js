@@ -6,6 +6,7 @@ import Subscribe from '../components/utils/Subscribe'
 import FeaturesGrid from '../components/utils/FeaturesGrid'
 
 const page = () => {
+  
   return (
     <>
       <Banner />

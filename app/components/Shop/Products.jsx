@@ -3,10 +3,12 @@ import { AiTwotoneAppstore } from "react-icons/ai";
 import ProductItems from '../Product/ProductITems';
 
 const Products = async () => {
+  // this page api renders on the server-side Rendering (SSR) and fetches data at build time or on request.
   const response = await fetch(
     "https://dummyjson.com/products",
     {
       method: "GET",
+      cache: 'no-store',
     }
   );
   
