@@ -28,8 +28,6 @@ export default async function RootLayout({ children }) {
       <body
         data-new-gr-c-s-check-loaded="14.1250.0"
         data-gr-ext-installed={true}
-        data-gr-ext-installed=""
-        className="bg-white dark:bg-black"
       >
         <Navbar userData={userData} />
         {children}
