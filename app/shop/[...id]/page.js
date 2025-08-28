@@ -5,13 +5,14 @@ import { Box, Rating } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
-const page = async ({ params }) => {
+export default async function page ({ params }) {
   const { id } = params;
   const res = await fetch(`https://dummyjson.com/products/${id}`, {
     next: { revalidate: 10 },
   });
   const data = await res.json();
   console.log("Product Data:", data);
+  
 
   return (
     <>
@@ -141,4 +142,4 @@ const page = async ({ params }) => {
   );
 };
 
-export default page;
+// export default page;
