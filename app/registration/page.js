@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 
-const page = () => {
+const Page = () => {
   const [userData, SetUserData] = useState({
     name: "",
     email: "",
@@ -12,24 +12,6 @@ const page = () => {
 
   const handelSubmit = async (e) => {
     e.preventDefault();
-    // try {
-    //   const response = await fetch(
-    //     "https://eb-commerce-server.vercel.app/api/v1/auth/registration",
-    //     {
-    //       method: "POST",
-    //       headers: {
-    //         accept: "application/json",
-    //         "content-type": "application/json",
-    //       },
-    //       body: JSON.stringify(userData),
-    //     },
-    //   );
-    //   const data = await response.json();
-    //   toast.error(data.error);
-    //   toast.success(data.success);
-    // } catch (error) {
-    //   console.log(error);
-    // }
     try{
       const response = await fetch("https://fdr-food-api.onrender.com/api/auth/register", {
         method: "POST",
@@ -125,4 +107,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

@@ -6,7 +6,7 @@ import { useState } from "react";
 import { CiLock, CiMail } from "react-icons/ci";
 import { toast, ToastContainer } from "react-toastify";
 
-const page = () => {
+const Page = () => {
   const [userData, SetUserData] = useState({
     email: "",
     password: "",
@@ -124,4 +124,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
