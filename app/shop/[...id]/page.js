@@ -15,7 +15,7 @@ const page = async ({ params }) => {
 
   return (
     <>
-      <MapBreadcramp />
+      <MapBreadcramp title={data.title} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 max-w-6xl mx-auto">
         {/* Left - Product Image */}
         <div className="flex flex-col items-center">

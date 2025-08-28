@@ -26,9 +26,10 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        data-new-gr-c-s-check-loaded="14.1249.0"
+        data-new-gr-c-s-check-loaded="14.1250.0"
         data-gr-ext-installed={true}
         data-gr-ext-installed=""
+        className="font-body"
       >
         <Navbar userData={userData} />
         {children}
