@@ -12,7 +12,7 @@ const Breadcramp = ({title}) => {
       <li>
         <Link href="/" className="flex items-center gap-1.5 text-brand">
           <FaHome />
-          <span className="uppercase">Home</span>
+          <span>Home</span>
         </Link>
       </li>
       {page && (
@@ -21,7 +21,7 @@ const Breadcramp = ({title}) => {
             <IoIosArrowForward className="text-xs" />
           </li>
           <li>
-            <p className="uppercase">{page}</p>
+            <p>{page}</p>
           </li>
         </>
       )}
@@ -31,7 +31,7 @@ const Breadcramp = ({title}) => {
             <IoIosArrowForward className="text-xs" />
           </li>
           <li>
-            <p className="uppercase">{title}</p>
+            <p>{title}</p>
           </li>
         </>
       )}
