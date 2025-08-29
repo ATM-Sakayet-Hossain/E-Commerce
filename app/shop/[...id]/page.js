@@ -21,7 +21,7 @@ export default async function page({ params }) {
   }
   const data = await singleData();
 
-  const relateData = await relatedData();
+  // const relateData = await relatedData();
 
   return (
     <>
