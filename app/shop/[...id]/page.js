@@ -1,9 +1,17 @@
-// import ProductDetails from "@/app/components/Shop/ProductDetail";
 import Counter from "@/app/components/Shop/Counter";
+import ProductDetails from "@/app/components/Shop/ProductDetails";
+import RelatedProducts from "@/app/components/Shop/RelatedProducts";
 import MapBreadcramp from "@/app/components/utils/MapBreadcramp";
 import { Box, Rating } from "@mui/material";
 import Image from "next/image";
 import React from "react";
+
+async function relateData() {
+  const res = await fetch("https://dummyjson.com/products?limit=5", {
+    cache: "no-store",
+  });
+  return await res.json();
+}
 
 export default async function page({ params }) {
   const { id } = params;
@@ -15,10 +23,10 @@ export default async function page({ params }) {
     return res.json();
   }
   const data = await ProductData();
-
+  const relatedProducts = await relateData();
 
   return (
-    <>
+    <div className="container">
       <MapBreadcramp title={data.title} />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 max-w-6xl mx-auto">
         {/* Left - Product Image */}
@@ -86,7 +94,6 @@ export default async function page({ params }) {
               ${data?.price}
             </span>
             <span className="line-through text-gray-400 ">
-              {/* ${(data?.price + data?.discountPercentage).toFixed(2)} */}$
               {(data?.price + data?.discountPercentage).toFixed(2)}
             </span>
             <span className="text-sm text-red-500">
@@ -138,8 +145,18 @@ export default async function page({ params }) {
           </div>
         </div>
       </div>
-      <div></div>
-    </>
+      <div className="w-full p-6 border-1 border-gray-400 rounded-lg shadow-md">
+        <ProductDetails data={data} />
+      </div>
+      <div className="my-10">
+        <h2 className="text-2xl font-bold text-start mb-6">Related Products</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 md:pt-5 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+          {relatedProducts.products.map((item) => (
+            <RelatedProducts key={item.id} data={item} />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

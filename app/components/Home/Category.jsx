@@ -16,8 +16,6 @@ const Category = () => {
     fetchData();
   }, []);
   
-  // console.log("Category Data:", data);
-  
 
   const settings = {
     dots: false,

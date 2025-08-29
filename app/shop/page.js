@@ -5,12 +5,12 @@ import DealOfDay from '../components/DealOfTheDay/DealOfDay'
 import Subscribe from '../components/utils/Subscribe'
 import FeaturesGrid from '../components/utils/FeaturesGrid'
 
-const page = () => {
+const page = ({searchParams}) => {
   
   return (
     <>
       <Banner />
-      <Products />
+      <Products searchParams={searchParams} />
       <DealOfDay />
       <Subscribe />
       <FeaturesGrid />
