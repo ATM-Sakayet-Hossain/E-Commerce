@@ -5,16 +5,23 @@ import { Box, Rating } from "@mui/material";
 import Image from "next/image";
 import React from "react";
 
-export const dynamic = "force-dynamic";
-
-export default async function page ({ params }) {
+export default async function page({ params }) {
   const { id } = params;
-  const res = await fetch(`https://dummyjson.com/products/${id}`, {
-    next: { revalidate: 10 },
-  });
-  const data = await res.json();
-  console.log("Product Data:", data);
-  
+  // const res = await fetch(`https://dummyjson.com/products/${id}`, {
+  //   next: { revalidate: 10 },
+  // });
+  // const data = await res.json();
+  // console.log("Product Data:", data);
+
+  async function singleData() {
+    const res = await fetch(`https://dummyjson.com/products/${id}`, {
+      next: { revalidate: 300 },
+    });
+    return res.json();
+  }
+  const data = await singleData();
+
+  const relateData = await relatedData();
 
   return (
     <>
@@ -85,8 +92,8 @@ export default async function page ({ params }) {
               ${data?.price}
             </span>
             <span className="line-through text-gray-400 ">
-              {/* ${(data?.price + data?.discountPercentage).toFixed(2)} */}
-              ${(data?.price + data?.discountPercentage).toFixed(2)}
+              {/* ${(data?.price + data?.discountPercentage).toFixed(2)} */}$
+              {(data?.price + data?.discountPercentage).toFixed(2)}
             </span>
             <span className="text-sm text-red-500">
               {data?.discountPercentage}% Off
@@ -137,11 +144,9 @@ export default async function page ({ params }) {
           </div>
         </div>
       </div>
-      <div>
-        
-      </div>
+      <div></div>
     </>
   );
-};
+}
 
 // export default page;
