@@ -7,21 +7,15 @@ import React from "react";
 
 export default async function page({ params }) {
   const { id } = params;
-  // const res = await fetch(`https://dummyjson.com/products/${id}`, {
-  //   next: { revalidate: 10 },
-  // });
-  // const data = await res.json();
-  // console.log("Product Data:", data);
 
-  async function singleData() {
+  async function ProductData() {
     const res = await fetch(`https://dummyjson.com/products/${id}`, {
-      next: { revalidate: 300 },
+      next: { revalidate: 500 },
     });
     return res.json();
   }
-  const data = await singleData();
+  const data = await ProductData();
 
-  // const relateData = await relatedData();
 
   return (
     <>
