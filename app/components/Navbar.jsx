@@ -7,10 +7,17 @@ import { FaBarsStaggered } from "react-icons/fa6";
 import Link from "next/link";
 import Image from "next/image";
 
-const Navbar = ({userData}) => {
+const Navbar = async ({userData}) => {
   const [show, setShow] = useState(false);
   const [sidebar, setSidebar] = useState(false);
-  const cartData = false
+
+  const res = await fetch("https://dummyjson.com/carts/5", {
+    method: "GET",
+    cache: "no-store",
+  });
+  const data = await res.json();
+
+  console.log(data);
   
 
   return (
@@ -52,7 +59,7 @@ const Navbar = ({userData}) => {
                   className="flex gap-2 items-end relative text-secondary"
                 >
                   <span className="w-4 h-4 lg:w-6 lg:h-6 rounded-full bg-brand text-white text-xs md:text-sm flex items-center justify-center absolute -top-3 md:-top-2 -right-2 md:right-5">
-                   {cartData.length}
+                   {data.totalProducts}
                   </span>
                   <FaShoppingCart className="text-2xl lg:text-3xl text-primary" />{" "}
                   <span className="hidden md:block">Cart</span>
